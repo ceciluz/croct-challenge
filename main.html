@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Croct | Getting Started 🚀</title>
+    <link rel="shortcut icon" href="https://docs.croct.com/favicon.png"/>
+    <link rel="stylesheet" href="https://docs.croct.com/assets/introduction/getting-started/style.css">
+    <script src="https://cdn.croct.io/js/v1/lib/plug.js"></script>
+    <script>
+       
+        croct.plug({appId: 'd37a2733-440d-4e6b-8f99-b0ba86ae2eb5'});
+    </script>
+    <script>
+        croct.fetch('homepage-hero').then(({content}) => {
+            const banner = document.getElementById('hero-banner');
+            const title = banner.querySelector('h1');
+            const subtitle = banner.querySelector('.subtitle');
+            const cta = banner.querySelector('.cta');
+
+            title.textContent = content.title;
+            subtitle.textContent = content.subtitle;
+            cta.textContent = content.cta.label;
+            cta.href = content.cta.link;
+        });
+    </script>
+  </head>
+  <body>
+    <div id="hero-banner">
+      <h1>Your static title</h1>
+      <p class="subtitle">Your static subtitle.</p>
+      <a class="cta" href="#">Your static CTA</a>
+    </div>
+  </body>
+</html>
